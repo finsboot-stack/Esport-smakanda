@@ -1,0 +1,281 @@
+/* --- VARS --- */
+:root {
+    --color-bg: #0d0d0d;
+    --color-dark: #050505;
+    --color-neon-blue: #00ffff;
+    --color-neon-glow: #00e5ff;
+    --color-accent: #0077ff;
+    --color-error: #ff3366;
+    --color-text: #cccccc;
+    --glow-intensity: 0 0 5px var(--color-neon-blue), 0 0 10px var(--color-neon-glow);
+    --glow-intensity-light: 0 0 2px var(--color-neon-blue);
+    --font-cyber: 'Electrolize', sans-serif; /* Anggap menggunakan font futuristik */
+}
+
+/* --- Global Reset & Body --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-cyber);
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding-top: 80px; /* Jarak untuk fixed header */
+}
+
+/* Optional: Import Font (Perlu ditambahkan di head HTML jika ingin benar-benar menggunakan) */
+/* @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap'); */
+
+
+/* --- Typography --- */
+h1, h2, h3 {
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+
+.neon-text {
+    color: var(--color-neon-blue);
+    text-shadow: var(--glow-intensity-light);
+}
+
+.glow {
+    text-shadow: var(--glow-intensity);
+}
+
+.error-text {
+    color: var(--color-error);
+    margin-top: 10px;
+}
+
+/* --- Header & Footer --- */
+header, footer {
+    background-color: var(--color-dark);
+    padding: 15px 5%;
+    text-align: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid transparent;
+}
+
+footer {
+    margin-top: 30px;
+    border-top: 2px solid transparent;
+}
+
+/* Neon Border Effect */
+.neon-border {
+    box-shadow: 0 0 10px var(--color-neon-blue), 0 0 20px var(--color-accent) inset;
+    border-color: var(--color-neon-blue) !important;
+}
+
+/* --- Main Content --- */
+main {
+    padding: 20px 5%;
+    min-height: 80vh;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+/* --- Buttons & Inputs --- */
+.neon-button {
+    background-color: transparent;
+    color: var(--color-neon-blue);
+    border: 2px solid var(--color-neon-blue);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    box-shadow: var(--glow-intensity-light);
+    border-radius: 5px;
+}
+
+.neon-button:hover {
+    background-color: var(--color-neon-blue);
+    color: var(--color-dark);
+    box-shadow: var(--glow-intensity);
+}
+
+.small-button {
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+input[type="text"], input[type="password"], input[type="number"] {
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-accent);
+    color: var(--color-neon-blue);
+    padding: 10px;
+    margin-top: 5px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 119, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: var(--color-neon-blue);
+    box-shadow: 0 0 8px var(--color-neon-blue);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* --- Panel & Divider (Admin) --- */
+.neon-panel {
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-neon-blue);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--color-neon-blue), inset 0 0 10px rgba(0, 255, 255, 0.3);
+    margin: 20px auto;
+    max-width: 900px;
+    width: 100%;
+}
+
+.neon-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-neon-blue), transparent);
+    box-shadow: 0 0 5px var(--color-neon-blue);
+    margin: 20px 0;
+}
+
+.admin-section {
+    margin-bottom: 20px;
+}
+.admin-section h3 {
+    border-bottom: 1px dashed var(--color-accent);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.right-align {
+    text-align: right;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+
+/* --- Bracket Styling --- */
+
+/* Parent container untuk bagan */
+.bracket-layout {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    overflow-x: auto;
+}
+
+/* Kolom / Babak */
+.round {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+    min-width: 200px; /* Minimal lebar kolom */
+}
+
+.round-title {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--color-accent);
+    text-shadow: 0 0 5px var(--color-accent);
+    text-align: center;
+}
+
+/* Pertandingan */
+.matchup {
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-accent);
+    border-radius: 5px;
+    margin-bottom: 30px; /* Ruang antar pertandingan vertikal */
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 0 0 8px rgba(0, 119, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.matchup:hover {
+    border-color: var(--color-neon-blue);
+    box-shadow: 0 0 15px var(--color-neon-blue);
+}
+
+/* Garis Koneksi (Sederhana) */
+.matchup::after {
+    content: '';
+    position: absolute;
+    right: -20px; /* Posisi garis keluar dari match */
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-neon-blue);
+    box-shadow: 0 0 5px var(--color-neon-blue);
+    z-index: 1;
+}
+
+/* Hanya untuk pertandingan di babak awal agar ada space vertikal */
+.round:not(:last-child) .matchup:nth-child(even) {
+    margin-bottom: 60px; /* Ruang tambahan agar match di babak berikutnya sejajar di tengah */
+}
+
+
+/* Styling Tim */
+.team-slot {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(0, 119, 255, 0.5);
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.team-slot:last-child {
+    border-bottom: none;
+}
+
+.team-slot .score {
+    color: var(--color-neon-blue);
+    font-weight: bold;
+    text-shadow: var(--glow-intensity-light);
+}
+
+.winner {
+    background-color: rgba(0, 255, 255, 0.1);
+    color: white;
+    font-weight: bold;
+  }
