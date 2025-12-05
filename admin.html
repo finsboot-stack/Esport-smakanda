@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - MLBB Tournament</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="neon-border">
+        <h1>ADMIN PANEL</h1>
+        <p class="neon-text">Manage Tournament Data.</p>
+        <a href="index.html" class="neon-button">Lihat Bracket</a>
+    </header>
+
+    <main>
+        <div id="login-container" class="neon-panel center-content">
+            <h2 class="neon-text glow">ADMIN LOGIN</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username" class="neon-text">Username:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="neon-text">Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="neon-button">LOGIN</button>
+                <p id="login-message" class="error-text"></p>
+            </form>
+        </div>
+
+        <div id="admin-panel" class="neon-panel" style="display:none;">
+            <h2 class="neon-text glow">ADMIN DASHBOARD</h2>
+            
+            <button id="logout-button" class="neon-button small-button right-align">Logout</button>
+
+            <section class="admin-section">
+                <h3 class="neon-text">EDIT DATA TIM</h3>
+                <div id="team-list">
+                    </div>
+                <button id="add-team-btn" class="neon-button small-button">Tambah Tim Baru</button>
+            </section>
+            
+            <hr class="neon-divider">
+
+            <section class="admin-section">
+                <h3 class="neon-text">UPDATE SKOR & BRACKET</h3>
+                <div id="match-list">
+                    </div>
+                <button id="update-bracket-btn" class="neon-button small-button">Simpan Perubahan & Update Bracket</button>
+            </section>
+            
+            <hr class="neon-divider">
+            
+            <section class="admin-section">
+                <h3 class="neon-text">EDIT KONTEN UTAMA</h3>
+                <p>Fitur ini bisa dikembangkan lebih lanjut, untuk demo ini hanya contoh.</p>
+                <button class="neon-button small-button" onclick="alert('Fitur edit konten utama sedang dikembangkan!')">Edit Header Teks</button>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="neon-border">
+        <p>&copy; 2025 OSMANKANDA ESPORTS. Admin Panel.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Menginisialisasi event listener untuk login dan admin panel
+        document.addEventListener('DOMContentLoaded', initAdminPanel);
+    </script>
+</body>
+</html>
